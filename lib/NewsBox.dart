@@ -2,9 +2,9 @@
 import "package:flutter/material.dart";
 import 'package:flutterapp0/Product.dart';
 
-class NewsBox extends StatelessWidget {
+class NewsBox extends StatelessWidget {   //не понимаю как перtдать в класс  NewsBox параметры из класса Product
 
-  String   _title ;
+  String _title ;
   String _text;
   String _imageurl;
 
