@@ -9,6 +9,7 @@ class NewsBox extends StatelessWidget {
   String _imageurl;
 
 //проверка связи
+  //ответ
   NewsBox(this._title, this._text, {String imageurl}) {
     _imageurl = imageurl;
   }
