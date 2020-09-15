@@ -1,8 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'NewsBox.dart';
-import 'Product.dart';
-import 'testBox.dart';
+import 'news_box.dart';
+import 'product.dart';
 
 void main() {
 
@@ -14,7 +13,6 @@ void main() {
       ));
 }
 class FirstRoute extends StatelessWidget {
-
 
   @override
   Widget build(BuildContext context) {
@@ -37,35 +35,17 @@ body: ListView.builder(
            subtitle: Text(products[index].pricetext), // Текст описания
            trailing: Icon(Icons.keyboard_arrow_right), // Иконка списка с права '>'
     onTap: () {
-              Navigator.push(
+           Navigator.push(
                   context ,
-                  MaterialPageRoute(builder: (context) => productLayout(id: index.toString(),)));
+                  MaterialPageRoute(builder: (context) =>  new NewsBox(products[index])));
             },
          );
-
        },
      ),
     );
   }
 }
-class productLayout extends StatelessWidget {//переход к описанию товара для первого элемнта списка
-  String _id;
-  productLayout({String id}):_id = id;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text('Магазин'),
-          backgroundColor: Colors.green[600],
 
-        ),
-
-        body: new NewsBox(products[int.parse(_id)].title, products[int.parse(_id)].text,
-            imageurl: products[int.parse(_id)].imageurl_)
-    );
-  }
-}
 
 
 
