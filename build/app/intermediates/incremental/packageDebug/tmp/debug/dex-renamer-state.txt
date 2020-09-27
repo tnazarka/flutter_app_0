@@ -1,4 +1,4 @@
-#Sat Sep 19 00:39:52 MSK 2020
+#Sun Sep 27 21:25:47 MSK 2020
 base.0=/Users/macky/Documents/flutter_app_34/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

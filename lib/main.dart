@@ -48,9 +48,9 @@ class FirstRoute extends StatelessWidget {
               child: IconButton(
                 icon: Icon(Icons.add_shopping_cart),
 //                tooltip: 'Increase volume by 10',
-                onPressed: () {
-                  try {
-                    quantitys[index].quantity += 1;
+                onPressed: () {//вот тут люты затуп, не знаю как парсить массив на наличие такого элемената,
+                  try {//а то когда добавляю элемент , то не получается проверить массив на наличие такогоже элемента, и пр нажатии добавляется такойже элемент и получается дичь
+                    quantitys[products[index].id].quantity += 1;
                     print("нашли элемент");
                   } catch (e) {
                     quantitys.add(BasketPoz(numberProduct: index, quantity: 1));
