@@ -40,11 +40,16 @@ class NewsBox extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton.extended(
+          //////////////////// вот пробовал вот так сделать, но почему-то все равно не находит элемент в списке,да ужжжжж
           onPressed: () {
-            try {
-              quantitys[_product.id].quantity += 1;
+            if (quantitys.contains(BasketPoz(numberProduct: _product.id)) ==
+                true) {
+              quantitys[
+                      quantitys.indexOf(BasketPoz(numberProduct: _product.id))]
+                  .quantity += 1;
+
               print("нашли элемент");
-            } catch (e) {
+            } else {
               quantitys.add(BasketPoz(numberProduct: _product.id, quantity: 1));
               print("Не нашли  и создали" + ":" + _product.id.toString());
             }
