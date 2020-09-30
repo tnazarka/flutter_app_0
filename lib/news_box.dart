@@ -4,10 +4,15 @@ import 'package:flutterapp0/product.dart';
 
 import 'basket_poduct.dart';
 
-class NewsBox extends StatelessWidget {
+class NewsBox extends StatefulWidget {
   Product _product;
   NewsBox(this._product);
 
+  @override
+  _NewsBoxState createState() => _NewsBoxState();
+}
+
+class _NewsBoxState extends State<NewsBox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,17 +27,17 @@ class NewsBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             new Image.network(
-              _product.imageurl_,
+              widget._product.imageurl_,
               height: 300.0,
               width: 200,
               fit: BoxFit.contain,
             ),
             new Text(
-              _product.title,
+              widget._product.title,
               style: new TextStyle(fontSize: 20.0),
             ),
             new Text(
-              _product.text,
+              widget._product.text,
               softWrap: true,
               textAlign: TextAlign.justify,
             )
@@ -42,21 +47,25 @@ class NewsBox extends StatelessWidget {
       floatingActionButton: FloatingActionButton.extended(
           //////////////////// вот пробовал вот так сделать, но почему-то все равно не находит элемент в списке,да ужжжжж
           onPressed: () {
-            if (quantitys.contains(BasketPoz(numberProduct: _product.id)) ==
-                true) {
-              quantitys[
-                      quantitys.indexOf(BasketPoz(numberProduct: _product.id))]
-                  .quantity += 1;
+            setState(() {
+              if (products[widget._product.id].checkIcon == Icons.check) {
+                //  quantitys[quantitys.indexOf(BasketPoz(productId: _product.id))]
+                //  .quantity += 1;
 
-              print("нашли элемент");
-            } else {
-              quantitys.add(BasketPoz(numberProduct: _product.id, quantity: 1));
-              print("Не нашли  и создали" + ":" + _product.id.toString());
-            }
+                print("Товар уже в корзине");
+              } else {
+                products[widget._product.id].checkIcon = Icons.check;
+                quantitys.add(BasketPoz(
+                    productId: products[widget._product.id].id, quantity: 1));
+                print("Не нашли  и создали" +
+                    ":" +
+                    widget._product.id.toString());
+              }
+            });
           },
           label: Text("В корзину"),
           backgroundColor: Colors.green[600],
-          icon: Icon(Icons.add_shopping_cart)),
+          icon: Icon(products[widget._product.id].checkIcon)),
     );
   }
 } //макет виджета для страницы с писанием товара

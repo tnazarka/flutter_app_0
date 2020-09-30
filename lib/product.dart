@@ -6,12 +6,20 @@ class Product {
   String imageurl_;
   int pricetext;
   int id; //эксперементальная переменная
+  IconData checkIcon;
 
-  Product({this.title, this.text, this.imageurl_, this.pricetext, this.id});
+  Product(
+      {this.title,
+      this.text,
+      this.imageurl_,
+      this.pricetext,
+      this.id,
+      this.checkIcon});
 }
 
 var products = [
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 0,
       title: 'Краткие ответы на большие вопросы" Стивен Хокинг',
       text:
@@ -25,6 +33,7 @@ var products = [
           'https://cdn.book24.ru/v2/ITD000000000943518/COVER/cover3d1__w337.webp',
       pricetext: 550),
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 1,
       title: '"Институт" Стивен Кинг',
       text:
@@ -39,6 +48,7 @@ var products = [
           'https://cdn.book24.ru/v2/ASE000000000849429/COVER/cover3d1__w337.webp',
       pricetext: 350),
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 2,
       title: '"1984" Джордж Оруэлл',
       text:
@@ -49,6 +59,7 @@ var products = [
           'https://cdn.book24.ru/v2/AST000000000130417/COVER/cover3d1__w337.webp',
       pricetext: 435),
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 3,
       title: '"Маленький принц" Антуан де Сент-Экзюпери',
       text:
@@ -62,6 +73,7 @@ var products = [
           'https://cdn.book24.ru/v2/ITD000000000840510/COVER/cover3d1__w337.webp',
       pricetext: 345),
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 4,
       title: '"Сказка о потерянном времени"  Евгений Шварц',
       text:
@@ -72,6 +84,7 @@ var products = [
           'https://cdn.book24.ru/v2/ASE000000000831712/COVER/cover3d1__w337.webp',
       pricetext: 300),
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 5,
       title: '"Маленькие женщины"  Луиза Мэй Олкотт',
       text:
@@ -82,6 +95,7 @@ var products = [
           'https://cdn.book24.ru/v2/ASE000000000845725/COVER/cover3d1__w337.webp',
       pricetext: 340),
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 6,
       title: '"Мастер и Маргарита"  Михаил Афанасьевич Булгаков',
       text:
@@ -110,6 +124,7 @@ var products = [
           'https://cdn.book24.ru/v2/ASE000000000702013/COVER/cover3d1__w337.webp',
       pricetext: 700),
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 7,
       title: '"Непобедимое Солнце"  Виктор Пелевин',
       text: '''''Причины купить:
@@ -131,6 +146,7 @@ var products = [
           'https://cdn.book24.ru/v2/ITD000000001119954/COVER/cover3d1__w337.webp',
       pricetext: 400),
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 8,
       title: '"О дивный новый мир"  Олдос Хаксли',
       text:
@@ -139,6 +155,7 @@ var products = [
           'https://cdn.book24.ru/v2/AST000000000130381/COVER/cover3d1__w337.webp',
       pricetext: 370),
   Product(
+      checkIcon: Icons.add_shopping_cart,
       id: 9,
       title: '"Прежде чем иволга пропоет"  Елена Михалкова',
       text: '''''Ей обещали, что это тихое место.

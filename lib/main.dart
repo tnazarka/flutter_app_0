@@ -10,7 +10,21 @@ void main() {
   ));
 }
 
-class FirstRoute extends StatelessWidget {
+void contains() {
+  for (int i = 0; i < quantitys.length - 1; i++) {
+    print("Вот массив" +
+        ":" +
+        quantitys[i].productId.toString() +
+        quantitys[i].quantity.toString());
+  }
+}
+
+class FirstRoute extends StatefulWidget {
+  @override
+  _FirstRouteState createState() => _FirstRouteState();
+}
+
+class _FirstRouteState extends State<FirstRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,11 +33,6 @@ class FirstRoute extends StatelessWidget {
         title: Text('Магазин'),
         backgroundColor: Colors.green[600],
         actions: <Widget>[
-//          IconButton(
-//            icon: const Icon(Icons.add_alert),
-//            tooltip: 'Show Snackbar',
-//            onPressed: () {},
-//          ),
           IconButton(
             icon: const Icon(Icons.shopping_cart),
             tooltip: 'Next page',
@@ -46,27 +55,29 @@ class FirstRoute extends StatelessWidget {
             trailing: Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
-                icon: Icon(Icons.add_shopping_cart),
+                icon: Icon(products[index].checkIcon),
 //                tooltip: 'Increase volume by 10',
                 onPressed: () {
-                  //вот тут люты затуп, не знаю как парсить массив на наличие такого элемената,
-                  //а то когда добавляю элемент , то не получается проверить массив на наличие такого же элемента, и при нажатии добавляется такой же элемент и получается дичь
-                  // в NewsBox есть второй варинт того, как я пытался парсить массив
-                  try {
-                    quantitys[products[index].id].quantity += 1;
-                    print("нашли элемент");
-                  } catch (e) {
-                    quantitys.add(BasketPoz(numberProduct: index, quantity: 1));
-                    print("Не нашли  и создали" + ":" + index.toString());
-                  }
+                  setState(() {
+                    if (products[index].checkIcon == Icons.check) {
+                      // products[index].checkIcon = Icons.check;
+                      print("нашли его" + ":");
+                    } else {
+                      products[index].checkIcon = Icons.check;
+                      quantitys.add(BasketPoz(
+                          productId: products[index].id, quantity: 1));
+                    }
+                  });
                 },
               ),
             ),
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => new NewsBox(products[index])));
+              setState(() {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => new NewsBox(products[index])));
+              });
             },
           );
         },
