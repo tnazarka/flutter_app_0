@@ -1,6 +1,7 @@
 // это тот виджет, котрый мы вмдим когда нажимаем на позицию в списке и переходим к описанию товара
 import "package:flutter/material.dart";
 import 'package:flutterapp0/product.dart';
+import 'card.dart';
 
 import 'basket_poduct.dart';
 
@@ -48,19 +49,19 @@ class _NewsBoxState extends State<NewsBox> {
           //////////////////// вот пробовал вот так сделать, но почему-то все равно не находит элемент в списке,да ужжжжж
           onPressed: () {
             setState(() {
-              if (products[widget._product.id].checkIcon == Icons.check) {
-                //  quantitys[quantitys.indexOf(BasketPoz(productId: _product.id))]
-                //  .quantity += 1;
-
-                print("Товар уже в корзине");
-              } else {
-                products[widget._product.id].checkIcon = Icons.check;
-                quantitys.add(BasketPoz(
-                    productId: products[widget._product.id].id, quantity: 1));
-                print("Не нашли  и создали" +
-                    ":" +
-                    widget._product.id.toString());
-              }
+//              if (products[widget._product.id].checkIcon == Icons.check) {
+//                //  quantitys[quantitys.indexOf(BasketPoz(productId: _product.id))]
+//                //  .quantity += 1;
+//
+//                print("Товар уже в корзине");
+//              } else {
+//                products[widget._product.id].checkIcon = Icons.check;
+//                quantitys.add(BasketPoz(
+//                    productId: products[widget._product.id].id, quantity: 1));
+//                print("Не нашли  и создали" +
+//                    ":" +
+//                    widget._product.id.toString());
+//              }
             });
           },
           label: Text("В корзину"),

@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
-import 'basket_layout.dart';
-import 'basket_poduct.dart';
+
 import 'news_box.dart';
 import 'product.dart';
+import 'card.dart';
 
 void main() {
   runApp(MaterialApp(
     home: FirstRoute(),
   ));
-}
-
-void contains() {
-  for (int i = 0; i < quantitys.length - 1; i++) {
-    print("Вот массив" +
-        ":" +
-        quantitys[i].productId.toString() +
-        quantitys[i].quantity.toString());
-  }
 }
 
 class FirstRoute extends StatefulWidget {
@@ -25,6 +16,7 @@ class FirstRoute extends StatefulWidget {
 }
 
 class _FirstRouteState extends State<FirstRoute> {
+  // Card card = Card();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +30,7 @@ class _FirstRouteState extends State<FirstRoute> {
             tooltip: 'Next page',
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => new BasketRoute()));
+                  MaterialPageRoute(builder: (context) => Cardd.instance));
             },
           ),
         ],
@@ -59,14 +51,14 @@ class _FirstRouteState extends State<FirstRoute> {
 //                tooltip: 'Increase volume by 10',
                 onPressed: () {
                   setState(() {
-                    if (products[index].checkIcon == Icons.check) {
-                      // products[index].checkIcon = Icons.check;
-                      print("нашли его" + ":");
-                    } else {
-                      products[index].checkIcon = Icons.check;
-                      quantitys.add(BasketPoz(
-                          productId: products[index].id, quantity: 1));
-                    }
+//                    if (products[index].checkIcon == Icons.check) {
+//                      // products[index].checkIcon = Icons.check;
+//                      print("нашли его" + ":");
+//                    } else {
+//                      products[index].checkIcon = Icons.check;
+//                      quantitys.add(BasketPoz(
+//                          productId: products[index].id, quantity: 1));
+//                    }
                   });
                 },
               ),
